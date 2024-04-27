@@ -1,0 +1,125 @@
+/*------------------------------------*\
+#BLOG
+\*------------------------------------*/
+
+/* Uso funciones */
+@function ls-basic($value) {
+  @return $value / 1000 * 1em;
+ }
+
+/* Uso pseudoclase :has() para dar tamaño solo a los h1 seguidos de un párrafo, 
+evitando así dar ese tamaño a todos los h1 */
+
+.blog h1:has(+ p) {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: $color-text-light;
+}
+
+.blog {
+  padding-top: 85px;
+  /* Utilizo :where() debido a que tiene un valor de especificidad de 0 y necesito que sea así para que el :has() anterior tenga más especificidad */
+  :where(h1, h2) {
+    color: $color-contrast;
+  }
+
+  &__ultra-wide-img {
+    padding-top: 60px;
+  }
+
+  &__post {
+    margin-bottom: 40px;
+    container-type: inline-size;
+
+    &-header {
+      margin-bottom: 20px;
+    }
+
+    @container (min-width: 577px) {  
+      h2 {
+        text-align: justify;
+        hyphens: auto;
+        letter-spacing:ls-basic(-25);
+      }
+    }
+
+    &-title {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    &-meta {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    &-content {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+
+      figure {
+        margin: 20px 0;
+
+        img {
+          max-width: 100%;
+          height: auto;
+          display: block;
+          margin-bottom: 10px;
+          
+        }
+
+        figcaption {
+          font-style: italic;
+          font-size: 14px;
+          color: #777;
+        }
+      }
+
+      blockquote {
+        border-left: 4px solid #333;
+        padding-left: 10px;
+        margin: 20px 0;
+        font-style: italic;
+        background: aliceblue;
+
+        p {
+          margin-bottom: 10px;
+        }
+
+        cite {
+          font-style: normal;
+        }
+      }
+    }
+
+    &-footer {
+      font-size: 14px;
+      color: #777;
+
+      &-tag {
+        color: #555;
+        text-decoration: none;
+
+        &:not(:last-child)::after {
+          content: ", ";
+        }
+      }
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    left: 50%;
+    top: 13%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    background-color: #000000a8;
+    padding: 5px;
+  }
+ 
+}
+
+

@@ -1,0 +1,124 @@
+/**
+ * Use this file to import partials.
+ * Do not include SCSS code in this file.
+ */
+
+ /**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Variables-overrides.....Globally-available variables bootstrap overrides.
+ * Variables...............Globally-available variables and settings/config.
+ * Specificity.............Specificity for determinate layers from styles.
+ *
+ * BOOTSTRAP
+ * Boostrap................Import Bootstrap library.
+ *
+ * BASE
+ * Page....................Page-level styles (HTML element).
+ * Headings................H1–H6 styles.
+ * Lists...................Simple list styles
+ * Links...................Hyperlink styles
+ * Images..................Images
+ *
+ * GENERIC
+ * Reset...................A pared back reset to remove margins.
+ *
+ * COMPONENTS
+ * Page-header.............The main page header.
+ * Blog....................Blog page styles.
+ * Product-block ..........Styles specifically for product block.
+ * Poster-block ...........Styles specifically for poster block.
+ * Galeria-block ..........Styles specifically for galeria block.
+ * Page-footer.............The main page footer.
+ 
+
+ *
+ * TRUMPS
+ * Show/hide...............Helpers to show and side stuff.
+ */
+ 
+/**
+ * Variable overrides
+ */
+
+$list-group-bg: #ececec;
+
+$badge-padding-x: 10px;
+$badge-padding-y: 10px; 
+$badge-font-weight: 600;
+
+$carousel-control-next-icon-bg: url("../images/icons/angle-circle-arrow-right-icon.svg");
+$carousel-control-prev-icon-bg: url("../images/icons/angle-circle-arrow-left-icon.svg");
+
+$card-border-width: 1px;
+$card-bg:#ececec;
+
+/**
+* Specificity definition
+*/
+@layer reset, bootstrap, base, headings, galeria, poster-block-base, poster-block-grid;
+
+@layer bootstrap {
+/**
+* Import bootstrap styles
+*/
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+}
+
+
+/**
+ * #VARIABLES
+ */
+
+@import "settings.variables";
+
+/**
+ * #BASE
+ */
+
+ @import "base.page";
+ @import "base.headings";
+ @import "base.list";
+ @import "base.links";
+ @import "base.images";
+
+ /**
+ * #GENERIC
+ */
+
+ @import "generic.reset";
+
+ /**
+ * #LAYOUTS
+ * It's a best practice to use a different partial for each page
+ */
+
+@import "layouts/components.page-header";
+@import "layouts/components.blog";
+@import "layouts/components.product-block";
+@import "layouts/components.poster-block";
+@import "layouts/components.galeria-block";
+@import "layouts/components.page-footer";
+
+
+/**
+ * #TRUMPS
+ */
+
+ @import "trumps.show-hide";
+
+/**
+ * Import npm dependencies
+ * see: https://v2.parceljs.org/features/module-resolution/
+ * see commented examples below
+ */
+
+ /**
+  * Import FontAwesome
+  */
+@import "npm:@fortawesome/fontawesome-free/css/all.css";
+
+/**
+ * Do NOT include anything else in this file!
+ */

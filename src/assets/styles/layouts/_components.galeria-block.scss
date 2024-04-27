@@ -1,0 +1,44 @@
+/*------------------------------------*\
+#GALERIA BLOCK
+\*------------------------------------*/
+
+@layer galeria {
+  .galeria-block {
+    container-type: inline-size;
+    background: hwb(87.77deg 74.23% 1.4%);
+    top: 105px;
+    position: relative;
+    margin-bottom: 120px;
+    border-radius: 4px;
+
+    h1 {
+      text-align: left;
+      max-width: none;
+      margin: 0;
+      padding-bottom: 15px;
+    }
+
+    @container (max-width: 577px) {   
+      &__images-grid .col-md-3 {
+        flex-basis: calc(50cqi + 10px);
+        max-width: calc(50cqi + 10px);
+      }
+    }
+
+    @container (min-width: 768px) {
+      h1 {
+        font-size: max(1.5em, 1.23em + 2cqi);
+      }
+    }
+
+    &__images-grid {
+      padding-top: 50px; 
+    }
+
+    &__images-grid > div > .active {
+      border: 5px solid hwb(345.13deg 0% 0.3%);
+      border-radius: 5px;
+    }
+  }
+}
+

@@ -1,0 +1,27 @@
+/*------------------------------------*\
+#LIST
+\*------------------------------------*/
+
+.special-list {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    li {
+      flex: 1 1 calc(33.333% - 20px); /* Para tres columnas en todas las pantallas */
+      margin: 10px;
+      list-style: none;
+      color: $color-text;
+      a {
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      @media (max-width: 768px) {
+        flex: 1 1 calc(50% - 20px); /* Para dos columnas en pantallas pequeñas */
+      }
+    }
+  }
+}
+
+
